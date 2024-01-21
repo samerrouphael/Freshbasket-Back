@@ -124,13 +124,13 @@ const vendorLogin = async (req, res) => {
       return res.status(401).json({ message: "Invalid password" });
     }
     // const token = generateToken(vendor._id, vendor.role);
-    // res.status(200).json({
-    //   message: "Vendor logged in successfully",
-    //   data: {
-    //     vendor: vendor.toObject(),
-    //     token: token,
-    //   },
-    // });
+    res.status(200).json({
+      message: "Vendor logged in successfully",
+      data: {
+        vendor: vendor.toObject(),
+        //     token: token,
+      },
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
