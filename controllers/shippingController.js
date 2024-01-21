@@ -5,15 +5,16 @@ const addShipping = async (req, res) => {
     const shipping = new Shipping({
       Name: req.body.firstName,
       lastName: req.body.lastName,
-      email:req.body.email,
-      phoneNUmber:req.body.phone,
-      country:req.body.country,
-      postalCode:req.body.postalCode,
-      streetAddress:req.body.streetAddress,
+      email: req.body.email,
+      phoneNUmber: req.body.phone,
+      country: req.body.country,
+      cityName: req.body.cityName,
+      postalCode: req.body.postalCode,
+      streetAddress: req.body.streetAddress,
       totalPrice: req.body.totalPrice,
-      date: req.body.date,
+     
       status: req.body.status,
-        });
+    });
 
     const saveShipping = await shipping.save();
     res.status(200).json({
@@ -38,9 +39,9 @@ const getAllShippingOrders = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
-const deleteShippingById= async (req, res) => {
+const deleteShippingById = async (req, res) => {
   try {
-    const { id } = req.params; 
+    const { id } = req.params;
     const deletedShipping = await Shipping.deleteOne({ _id: id });
     res.status(200).json({
       success: true,

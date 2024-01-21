@@ -5,7 +5,9 @@ const orderDetail = new mongoose.Schema({
     productsId: {type :[String]},
     date: { type: String},
     totalPrice: { type: Number},
-    status:{ type: String}
+    status:{ type: String},
+  
+    
   });
   
 const OrderDetail = mongoose.model('OrderDetail', orderDetail);

@@ -8,6 +8,7 @@ const addOrderDetail = async (req, res) => {
             date: req.body.date,
             totalPrice: req.body.totalPrice,
             status: req.body.status,
+            name:req.body.firstName,
            
         });
 
