@@ -1,11 +1,11 @@
 const Vendor = require("../models/vendor");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 //const { generateToken } = require("../extra/generateToken");
 
 const addVendor = async (req, res) => {
   try {
     const { name, lastName, email, phone, company, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const vendor = new Vendor({
       name,
       lastName,
@@ -118,7 +118,7 @@ const vendorLogin = async (req, res) => {
         .json({ message: "Vendor not found for the provided email" });
     }
 
-    const passwordMatch = await bcrypt.compare(password, vendor.password);
+    const passwordMatch = await bcryptjs.compare(password, vendor.password);
 
     if (!passwordMatch) {
       return res.status(401).json({ message: "Invalid password" });

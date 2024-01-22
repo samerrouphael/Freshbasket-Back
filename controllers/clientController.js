@@ -1,5 +1,5 @@
 const Client = require("../models/client");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 //const { generateToken } = require("../extra/generateToken");
 
 const addClient = async (req, res) => {
@@ -13,7 +13,7 @@ const addClient = async (req, res) => {
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
     const client = new Client({
       firstName,
@@ -81,7 +81,7 @@ const clientLogin = async (req, res) => {
       });
     }
 
-    const checkPassword = await bcrypt.compare(password, user.password);
+    const checkPassword = await bcryptjs.compare(password, user.password);
 
     if (!checkPassword) {
       return res.status(400).json({
