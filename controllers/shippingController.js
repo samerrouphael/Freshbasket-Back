@@ -3,10 +3,10 @@ const Shipping = require("../models/shipping");
 const addShipping = async (req, res) => {
   try {
     const shipping = new Shipping({
-      Name: req.body.firstName,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      phoneNUmber: req.body.phone,
+      phoneNUmber: req.body.phoneNUmber,
       country: req.body.country,
       cityName: req.body.cityName,
       postalCode: req.body.postalCode,
