@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const orderDetail = new mongoose.Schema({
     email: { type: String},
-    productsId: {type :[String]},
+    ProductsId: {type :[String]},
     date: { type: String},
     totalPrice: { type: Number},
     status:{ type: String},
